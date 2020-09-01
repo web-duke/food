@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
-export const SearchBar = ({ term, onTermChange }) => {
+export const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return (
     <View style={styles.background}>
       <AntDesign name="search1" size={30} color="black" />
@@ -14,7 +14,8 @@ export const SearchBar = ({ term, onTermChange }) => {
         autoCorrect={false}
         placeholder="Search"
         value={term}
-        onChangeText={(newTerm) => onTermChange(newTerm)}
+        onChangeText={onTermChange}
+        onEndEditing={onTermSubmit}
       />
     </View>
   );
