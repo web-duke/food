@@ -5,12 +5,13 @@ import { ResultsDetail } from "./ResultsDetail";
 
 export const ResultsList = ({ title, results }) => {
   return (
-    <View>
+    <View style={styles.constainer}>
       <Text style={styles.title}>{title}</Text>
 
       <FlatList
         horizontal
         data={results}
+        showsHorizontalScrollIndicator={false}
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {
           return <ResultsDetail result={item} />;
@@ -21,8 +22,12 @@ export const ResultsList = ({ title, results }) => {
 };
 
 const styles = StyleSheet.create({
+  constainer: {
+    marginVertical: 10,
+  },
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    marginHorizontal: 15,
   },
 });
